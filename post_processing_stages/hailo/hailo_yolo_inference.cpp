@@ -169,6 +169,10 @@ bool YoloInference::Process(CompletedRequestPtr &completed_request)
 	}
 
 	std::vector<Detection> objects = runInference(input.get());
+	for(const auto &object : objects){
+		std::cout << "detected object" << std::endl;
+		std::cout << object.toString() << std::endl;
+	}
 	if (objects.size())
 	{
 		if (temporal_filtering_)
