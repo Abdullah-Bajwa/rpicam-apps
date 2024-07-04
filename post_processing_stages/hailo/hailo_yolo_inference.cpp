@@ -142,6 +142,7 @@ void YoloInference::Configure()
 bool YoloInference::Process(CompletedRequestPtr &completed_request)
 {
 	
+	std::cout << "hailo process begin" << std::endl;
 	if (!HailoPostProcessingStage::Ready())
 	{
 		LOG_ERROR("HailoRT not ready!");
@@ -169,6 +170,7 @@ bool YoloInference::Process(CompletedRequestPtr &completed_request)
 	}
 
 	std::vector<Detection> objects = runInference(input.get());
+	std::cout << "inference run complete" << std::endl;
 	for(const auto &object : objects){
 		std::cout << "detected object" << std::endl;
 		std::cout << object.toString() << std::endl;
