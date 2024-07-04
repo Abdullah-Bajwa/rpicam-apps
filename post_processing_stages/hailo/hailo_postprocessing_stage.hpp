@@ -94,7 +94,15 @@ public:
 protected:
 	bool Ready() const
 	{
-		return init_ && low_res_stream_ && output_stream_;
+		bool initModel = init_;
+		bool lowResStatus = low_res_stream_;
+		bool highResStatus = output_stream_;
+		std::cout << "hailoRT status" <<std::endl;
+		std::cout << "init status" << initModel <<std::endl;
+		std::cout << "low res status status" << lowResStatus <<std::endl;
+		std::cout << "output status" << highResStatus <<std::endl;
+
+		return initModel && lowResStatus && highResStatus;
 	}
 
 	static std::string PostProcLibDir(const std::string &lib)
