@@ -141,6 +141,7 @@ void YoloInference::Configure()
 
 bool YoloInference::Process(CompletedRequestPtr &completed_request)
 {
+	
 	if (!HailoPostProcessingStage::Ready())
 	{
 		LOG_ERROR("HailoRT not ready!");
